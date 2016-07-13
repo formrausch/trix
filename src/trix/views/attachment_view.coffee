@@ -21,7 +21,7 @@ class Trix.AttachmentView extends Trix.ObjectView
     else
       figure.appendChild(node) for node in @createContentNodes()
 
-    figure.appendChild(@createCaptionElement())
+    # figure.appendChild(@createCaptionElement())
 
     data =
       trixAttachment: JSON.stringify(@attachment)
@@ -46,11 +46,12 @@ class Trix.AttachmentView extends Trix.ObjectView
       figure.appendChild(@progressElement)
       data.trixSerialize = false
 
-    if href = @getHref()
-      element = makeElement("a", {href})
-      element.appendChild(figure)
-    else
-      element = figure
+    # if href = @getHref()
+    #   element = makeElement("a", {href})
+    #   element.appendChild(figure)
+    # else
+    #   element = figure
+    element = figure
 
     element.dataset[key] = value for key, value of data
     element.setAttribute("contenteditable", false)
